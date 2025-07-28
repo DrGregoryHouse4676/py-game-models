@@ -30,10 +30,12 @@ def main() -> None:
 
         player, _ = Player.objects.update_or_create(
             nickname=key,
-            email=value["email"],
-            bio=value.get("bio"),
-            race=race,
-            guild=guild
+            defaults={
+                "email": value["email"],
+                "bio": value.get("bio"),
+                "race": race,
+                "guild": guild
+            }
         )
 
         for skill_data in race_data["skills"]:
