@@ -28,7 +28,7 @@ def main() -> None:
                 defaults={"description": guild_data.get("description")}
             )
 
-        player, _ = Player.objects.get_or_create(
+        player, _ = Player.objects.update_or_create(
             nickname=key,
             email=value["email"],
             bio=value.get("bio"),
